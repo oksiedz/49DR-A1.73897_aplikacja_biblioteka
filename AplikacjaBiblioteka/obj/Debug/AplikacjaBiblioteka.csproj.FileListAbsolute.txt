@@ -1,0 +1,10 @@
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\bin\Debug\AplikacjaBiblioteka.exe.config
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\bin\Debug\AplikacjaBiblioteka.exe
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\bin\Debug\AplikacjaBiblioteka.pdb
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.csprojAssemblyReference.cache
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.login.resources
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.Properties.Resources.resources
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.csproj.GenerateResource.cache
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.csproj.CoreCompileInputs.cache
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.exe
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.pdb

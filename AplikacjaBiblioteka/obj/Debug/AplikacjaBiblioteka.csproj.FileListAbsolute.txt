@@ -8,3 +8,4 @@ C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\Apl
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.csproj.CoreCompileInputs.cache
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.exe
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.pdb
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.mdi_user.resources

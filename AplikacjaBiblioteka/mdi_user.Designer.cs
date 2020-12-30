@@ -31,11 +31,12 @@ namespace AplikacjaBiblioteka
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.booksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.booksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.przeglądajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +50,23 @@ namespace AplikacjaBiblioteka
             this.menuStrip.Size = new System.Drawing.Size(632, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            // 
+            // booksToolStripMenuItem
+            // 
+            this.booksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewBookToolStripMenuItem,
+            this.przeglądajToolStripMenuItem});
+            this.booksToolStripMenuItem.Name = "booksToolStripMenuItem";
+            this.booksToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.booksToolStripMenuItem.Text = "Książki";
+            this.booksToolStripMenuItem.Click += new System.EventHandler(this.booksToolStripMenuItem_Click);
+            // 
+            // addNewBookToolStripMenuItem
+            // 
+            this.addNewBookToolStripMenuItem.Name = "addNewBookToolStripMenuItem";
+            this.addNewBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewBookToolStripMenuItem.Text = "Dodaj";
+            this.addNewBookToolStripMenuItem.Click += new System.EventHandler(this.addNewBookToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -66,21 +84,12 @@ namespace AplikacjaBiblioteka
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // booksToolStripMenuItem
+            // przeglądajToolStripMenuItem
             // 
-            this.booksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewBookToolStripMenuItem});
-            this.booksToolStripMenuItem.Name = "booksToolStripMenuItem";
-            this.booksToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.booksToolStripMenuItem.Text = "Książki";
-            this.booksToolStripMenuItem.Click += new System.EventHandler(this.booksToolStripMenuItem_Click);
-            // 
-            // addNewBookToolStripMenuItem
-            // 
-            this.addNewBookToolStripMenuItem.Name = "addNewBookToolStripMenuItem";
-            this.addNewBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addNewBookToolStripMenuItem.Text = "Dodaj";
-            this.addNewBookToolStripMenuItem.Click += new System.EventHandler(this.addNewBookToolStripMenuItem_Click);
+            this.przeglądajToolStripMenuItem.Name = "przeglądajToolStripMenuItem";
+            this.przeglądajToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.przeglądajToolStripMenuItem.Text = "Przeglądaj";
+            this.przeglądajToolStripMenuItem.Click += new System.EventHandler(this.przeglądajToolStripMenuItem_Click);
             // 
             // mdi_user
             // 
@@ -111,6 +120,7 @@ namespace AplikacjaBiblioteka
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem booksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewBookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem przeglądajToolStripMenuItem;
     }
 }
 

@@ -24,25 +24,32 @@ namespace AplikacjaBiblioteka
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Creation of SQL command to verify
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from library_person where login = '" + textBox1.Text + "' and password = '" + textBox2.Text + "'";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            count = Convert.ToInt32(dt.Rows.Count.ToString());
-            if(count == 0)
+            try
             {
-                MessageBox.Show("Nieprawidłowy login lub hasło.");
+                //Creation of SQL command to verify
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from library_person where login = '" + textBox1.Text + "' and password = '" + textBox2.Text + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                count = Convert.ToInt32(dt.Rows.Count.ToString());
+                if (count == 0)
+                {
+                    MessageBox.Show("Nieprawidłowy login lub hasło.");
+                }
+                else
+                {
+                    //Hiding Login form and opening the new mdi_user form.
+                    this.Hide();
+                    mdi_user mu = new mdi_user();
+                    mu.Show();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //Hiding Login form and opening the new mdi_user form.
-                this.Hide();
-                mdi_user mu = new mdi_user();
-                mu.Show();
+                MessageBox.Show(ex.Message);
             }
         }
 

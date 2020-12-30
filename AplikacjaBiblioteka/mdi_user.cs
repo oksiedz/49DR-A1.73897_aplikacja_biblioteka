@@ -109,5 +109,11 @@ namespace AplikacjaBiblioteka
             add_book ab = new add_book();
             ab.Show();
         }
+
+        private void przeglądajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            view_books vb = new view_books();
+            vb.Show();
+        }
     }
 }

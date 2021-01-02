@@ -81,6 +81,8 @@ namespace AplikacjaBiblioteka
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
+                int rowCount = Convert.ToInt32(dt.Rows.Count.ToString());
+                
                 dataGridView1.DataSource = dt;
 
                 Bitmap img;
@@ -97,9 +99,12 @@ namespace AplikacjaBiblioteka
                     dataGridView1.Rows[j].Cells[7].Value = img;
                     dataGridView1.Rows[j].Height = 100;
                     j = j + 1;
-
-                    con.Close();
                 }
+                if (rowCount == 0)
+                {
+                    MessageBox.Show("Nie ma pozycji spełniających kryteria wyszukiwania.");
+                }
+                con.Close();
             }
             catch (Exception ex)
             {

@@ -59,12 +59,16 @@ namespace AplikacjaBiblioteka
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "insert into student_info(name,image,index_no,department,phone,email) values('" + textBox1.Text +"','" + imagePath.ToString() +"','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "')";
                 cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
                 con.Close();
 
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
+
                 MessageBox.Show("Student został dodany");
+
             }
             catch (Exception ex)
             {

@@ -135,6 +135,7 @@ namespace AplikacjaBiblioteka
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Assignment of ID of the row
             int i;
             i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 
@@ -180,6 +181,35 @@ namespace AplikacjaBiblioteka
 
 
                 con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            //Assignment of ID of the row
+            int i;
+            i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
+
+            try
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from book_info where id = " + i + "";
+                cmd.ExecuteNonQuery();
+                con.Close();
+                disp_books();
+                panel2.Visible = false;
+                MessageBox.Show("Pozycja usunięta");
             }
             catch (Exception ex)
             {

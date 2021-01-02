@@ -54,6 +54,10 @@ namespace AplikacjaBiblioteka
 
                 if (correctData == 1)
                 {
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
                     con.Open();
                     //Adding new book to data base
                     SqlCommand cmd = con.CreateCommand();

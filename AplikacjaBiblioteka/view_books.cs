@@ -21,25 +21,7 @@ namespace AplikacjaBiblioteka
 
         private void view_books_Load(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select Id, name, author_name, publication_name from book_info";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-
-
-                con.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            disp_books();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,16 +45,20 @@ namespace AplikacjaBiblioteka
             }
             try
             {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 if (category == "")
                 {
-                    cmd.CommandText = "select Id, name, author_name, publication_name from book_info";
+                    cmd.CommandText = "select Id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info";
                 }
                 else
                 {
-                    cmd.CommandText = "select id, name, author_name, publication_name from book_info where " + category + " like '%" + textBox2.Text + "%'";
+                    cmd.CommandText = "select id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info where " + category + " like '%" + textBox2.Text + "%'";
                 }
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -98,6 +84,107 @@ namespace AplikacjaBiblioteka
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Panel will be visible only if user click on the data grid
+            panel2.Visible = true;
+            //Assignment of ID of the row
+            int i;
+            i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
+
+            try
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info where id = " + i + "";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                
+                //Presentation of row data into boxes
+                foreach(DataRow dr in dt.Rows)
+                {
+                    textBox1.Text = dr["Tytuł"].ToString();
+                    textBox3.Text = dr["Autor"].ToString();
+                    textBox4.Text = dr["Wydawnictwo"].ToString();
+                    dateTimePicker1.Value = Convert.ToDateTime(dr["Data_Zakupu"].ToString());
+                    textBox6.Text = dr["Ilość"].ToString();
+                }    
+
+                con.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int i;
+            i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
+
+            try
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update book_info set name = '" + textBox1.Text + "', author_name = '" + textBox3.Text + "', publication_name='" + textBox4.Text  + "', purchase_date = '" + DateTime.Parse(dateTimePicker1.Text) + "', quantity ='" + textBox6.Text + "' where id = " + i +"";
+                cmd.ExecuteNonQuery();
+                con.Close();
+                disp_books();
+                panel2.Visible = false;
+                MessageBox.Show("Pozycja zaktualizowana");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void disp_books()
+        {
+            try
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select Id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

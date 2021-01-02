@@ -37,6 +37,8 @@ namespace AplikacjaBiblioteka
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@ namespace AplikacjaBiblioteka
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,6 +56,7 @@ namespace AplikacjaBiblioteka
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(372, 12);
             this.dataGridView1.Name = "dataGridView1";
@@ -147,6 +148,28 @@ namespace AplikacjaBiblioteka
             this.panel2.TabIndex = 2;
             this.panel2.Visible = false;
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button3.Location = new System.Drawing.Point(127, 91);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(119, 29);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Usuń";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2.Location = new System.Drawing.Point(10, 91);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 29);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Zaktualizuj";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(429, 9);
@@ -231,28 +254,6 @@ namespace AplikacjaBiblioteka
             this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tytuł";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(10, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 29);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Zaktualizuj";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(127, 91);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 29);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Usuń";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // view_books
             // 

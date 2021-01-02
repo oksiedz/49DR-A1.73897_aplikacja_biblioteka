@@ -12,3 +12,4 @@ C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\Apl
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.add_book.resources
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.view_books.resources
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.add_student_info.resources
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.view_student_info.resources

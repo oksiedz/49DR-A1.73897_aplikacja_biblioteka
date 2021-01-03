@@ -13,6 +13,7 @@ namespace AplikacjaBiblioteka
 {
     public partial class view_books : Form
     {
+        //Connection string to the local data base
         SqlConnection con = new SqlConnection(@"Data Source=PLTOKSIEDZKI04\SQLEXPRESS;Initial Catalog=library_management_system;Integrated Security=True");
         public view_books()
         {
@@ -21,35 +22,45 @@ namespace AplikacjaBiblioteka
 
         private void view_books_Load(object sender, EventArgs e)
         {
+            //Present the list of books
             disp_books();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string category = "";
-            int i = 0;
-            switch (comboBox1.Text)
-            {
-                case "Tytuł":
-                    category = "name";
-                    break;
-                case "Autor":
-                    category = "author_name";
-                    break;
-                case "Wydawnictwo":
-                    category = "publication_name";
-                    break;
-                default:
-                    category = "";
-                    break;
-            }
             try
             {
+                //Variable for search category
+                string category = "";
+                
+                //Variable for data count
+                int i = 0;
+                
+                //Set the searching column depending on the choosen value from comboBox
+                switch (comboBox1.Text)
+                {
+                    case "Tytuł":
+                        category = "name";
+                        break;
+                    case "Autor":
+                        category = "author_name";
+                        break;
+                    case "Wydawnictwo":
+                        category = "publication_name";
+                        break;
+                    default:
+                        category = "";
+                        break;
+                }
+
+                //Check the connection status
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
                 }
                 con.Open();
+
+                //Select query
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 if (category == "")
@@ -67,6 +78,7 @@ namespace AplikacjaBiblioteka
                 i = Convert.ToInt32(dt.Rows.Count.ToString());
                 dataGridView1.DataSource = dt;
 
+                //Closing the connection
                 con.Close();
 
                 if (i == 0)
@@ -88,19 +100,23 @@ namespace AplikacjaBiblioteka
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Panel will be visible only if user click on the data grid
-            panel2.Visible = true;
-            //Assignment of ID of the row
-            int i;
-            i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
-
             try
             {
+                //Panel will be visible only if user click on the data grid
+                panel2.Visible = true;
+
+                //Assignment of ID of the row
+                int i;
+                i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
+
+                //Checking the connection status
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
                 }
                 con.Open();
+
+                //Select query for books info
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info where id = " + i + "";
@@ -119,41 +135,46 @@ namespace AplikacjaBiblioteka
                     textBox6.Text = dr["Ilość"].ToString();
                 }    
 
+                //Closing the connection
                 con.Close();
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Assignment of ID of the row
-            int i;
-            i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
-
             try
             {
+                //Assignment of ID of the row
+                int i;
+                i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
+
+                //Check the connection status
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
                 }
                 con.Open();
+
+                //Update query to edit the data
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "update book_info set name = '" + textBox1.Text + "', author_name = '" + textBox3.Text + "', publication_name='" + textBox4.Text  + "', purchase_date = '" + DateTime.Parse(dateTimePicker1.Text) + "', quantity ='" + textBox6.Text + "' where id = " + i +"";
                 cmd.ExecuteNonQuery();
-                con.Close();
+
+                //Present the list of books
                 disp_books();
+                
+                //Hide the panel with edit data
                 panel2.Visible = false;
+                
                 MessageBox.Show("Pozycja zaktualizowana");
+
+                //Closing the connection
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -165,11 +186,14 @@ namespace AplikacjaBiblioteka
         {
             try
             {
+                //Checking connection status
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
                 }
                 con.Open();
+
+                //Select query for book info
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select Id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info";
@@ -179,7 +203,7 @@ namespace AplikacjaBiblioteka
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
 
-
+                //Closing the connection
                 con.Close();
             }
             catch (Exception ex)
@@ -190,26 +214,35 @@ namespace AplikacjaBiblioteka
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            //Assignment of ID of the row
-            int i;
-            i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
-
             try
             {
+                //Assignment of ID of the row
+                int i;
+                i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
+
+                //Checking the connection status
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
                 }
                 con.Open();
+
+                //Delete query
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "delete from book_info where id = " + i + "";
                 cmd.ExecuteNonQuery();
-                con.Close();
+
+                //Present the list of books
                 disp_books();
+
+                //Hide the panel with edit data
                 panel2.Visible = false;
+                
                 MessageBox.Show("Pozycja usunięta");
+
+                //Closing the connection
+                con.Close();
             }
             catch (Exception ex)
             {

@@ -34,12 +34,13 @@ namespace AplikacjaBiblioteka
             this.booksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.przeglądajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.studenciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.przeglądajToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.wypożyczToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +60,8 @@ namespace AplikacjaBiblioteka
             // 
             this.booksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewBookToolStripMenuItem,
-            this.przeglądajToolStripMenuItem});
+            this.przeglądajToolStripMenuItem,
+            this.wypożyczToolStripMenuItem});
             this.booksToolStripMenuItem.Name = "booksToolStripMenuItem";
             this.booksToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.booksToolStripMenuItem.Text = "Książki";
@@ -79,6 +81,29 @@ namespace AplikacjaBiblioteka
             this.przeglądajToolStripMenuItem.Text = "Przeglądaj";
             this.przeglądajToolStripMenuItem.Click += new System.EventHandler(this.przeglądajToolStripMenuItem_Click);
             // 
+            // studenciToolStripMenuItem
+            // 
+            this.studenciToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajToolStripMenuItem,
+            this.przeglądajToolStripMenuItem1});
+            this.studenciToolStripMenuItem.Name = "studenciToolStripMenuItem";
+            this.studenciToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.studenciToolStripMenuItem.Text = "Studenci";
+            // 
+            // dodajToolStripMenuItem
+            // 
+            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.dodajToolStripMenuItem.Text = "Dodaj";
+            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
+            // 
+            // przeglądajToolStripMenuItem1
+            // 
+            this.przeglądajToolStripMenuItem1.Name = "przeglądajToolStripMenuItem1";
+            this.przeglądajToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.przeglądajToolStripMenuItem1.Text = "Przeglądaj";
+            this.przeglądajToolStripMenuItem1.Click += new System.EventHandler(this.przeglądajToolStripMenuItem1_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -95,28 +120,12 @@ namespace AplikacjaBiblioteka
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // studenciToolStripMenuItem
+            // wypożyczToolStripMenuItem
             // 
-            this.studenciToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dodajToolStripMenuItem,
-            this.przeglądajToolStripMenuItem1});
-            this.studenciToolStripMenuItem.Name = "studenciToolStripMenuItem";
-            this.studenciToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.studenciToolStripMenuItem.Text = "Studenci";
-            // 
-            // dodajToolStripMenuItem
-            // 
-            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.dodajToolStripMenuItem.Text = "Dodaj";
-            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
-            // 
-            // przeglądajToolStripMenuItem1
-            // 
-            this.przeglądajToolStripMenuItem1.Name = "przeglądajToolStripMenuItem1";
-            this.przeglądajToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.przeglądajToolStripMenuItem1.Text = "Przeglądaj";
-            this.przeglądajToolStripMenuItem1.Click += new System.EventHandler(this.przeglądajToolStripMenuItem1_Click);
+            this.wypożyczToolStripMenuItem.Name = "wypożyczToolStripMenuItem";
+            this.wypożyczToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wypożyczToolStripMenuItem.Text = "Wypożycz";
+            this.wypożyczToolStripMenuItem.Click += new System.EventHandler(this.wypożyczToolStripMenuItem_Click);
             // 
             // mdi_user
             // 
@@ -151,6 +160,7 @@ namespace AplikacjaBiblioteka
         private System.Windows.Forms.ToolStripMenuItem studenciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem przeglądajToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem wypożyczToolStripMenuItem;
     }
 }
 

@@ -127,5 +127,11 @@ namespace AplikacjaBiblioteka
             view_student_info vsi = new view_student_info();
             vsi.Show();
         }
+
+        private void wypożyczToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            issue_book ib = new issue_book();
+            ib.Show();
+        }
     }
 }

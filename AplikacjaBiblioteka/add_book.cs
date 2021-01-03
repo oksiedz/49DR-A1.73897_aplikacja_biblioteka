@@ -54,6 +54,7 @@ namespace AplikacjaBiblioteka
 
                 if (correctData == 1)
                 {
+                    //Check connection status and set it to open one.
                     if (con.State == ConnectionState.Open)
                     {
                         con.Close();
@@ -74,6 +75,9 @@ namespace AplikacjaBiblioteka
 
                     //Show info that book was added
                     MessageBox.Show("Dodano książkę");
+
+                    //Closing connection to the base
+                    con.Close();
                 }
             }    
             catch (Exception ex)

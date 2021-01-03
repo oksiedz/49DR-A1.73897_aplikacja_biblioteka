@@ -17,7 +17,7 @@ namespace AplikacjaBiblioteka
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new login());
-            //Application.Run(new add_student_info());
+            //Application.Run(new issue_book());
         }
     }
 }

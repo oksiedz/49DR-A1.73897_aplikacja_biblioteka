@@ -63,7 +63,7 @@ namespace AplikacjaBiblioteka
                     //Adding new book to data base
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into book_info(name, author_name, publication_name, purchase_date, quantity) values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + DateTime.Parse(dateTimePicker1.Text) + "'," + quantity + ")";
+                    cmd.CommandText = "insert into book_info(name, author_name, publication_name, purchase_date, quantity, available) values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + DateTime.Parse(dateTimePicker1.Text) + "'," + quantity + "," + quantity + ")";
                     cmd.ExecuteNonQuery();
                     con.Close();
 

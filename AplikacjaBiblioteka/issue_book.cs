@@ -155,13 +155,42 @@ namespace AplikacjaBiblioteka
         {
             try
             {
-                //Insert query to the table with issuing books
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into issue_book (student_id,book_id,issue_date) values ('" + textBox7.Text + "','" + textBox8.Text + "','" + dateTimePicker1.Value.ToShortDateString() + "')";
-                cmd.ExecuteNonQuery();
+                int availableAmount = 0;
+                //Query to check if the book is available
+                SqlCommand cmd2 = con.CreateCommand();
+                cmd2.CommandType = CommandType.Text;
+                cmd2.CommandText = "select * from books_info where id = " + textBox8.Text + "";
+                cmd2.ExecuteNonQuery();
+                DataTable dt2 = new DataTable();
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+                da2.Fill(dt2);
 
-                MessageBox.Show("Wypożyczono książkę " + textBox6 + " studentowi o numerze indeksu: " + textBox1 + "");
+                foreach(DataRow dr2 in dt2.Rows)
+                {
+                    availableAmount = Convert.ToInt32(dr2["available"].ToString());
+                }
+
+                if (availableAmount > 0)
+                {
+                    //Insert query to the table with issuing books
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "insert into issue_book (student_id,book_id,issue_date) values ('" + textBox7.Text + "','" + textBox8.Text + "','" + dateTimePicker1.Value.ToShortDateString() + "')";
+                    cmd.ExecuteNonQuery();
+
+                    //Update query to decrease the amount of books
+                    SqlCommand cmd1 = con.CreateCommand();
+                    cmd1.CommandType = CommandType.Text;
+                    cmd1.CommandText = "update book_info set available = available - 1 where id = " + textBox8.Text + "";
+                    cmd1.ExecuteNonQuery();
+
+                    MessageBox.Show("Wypożyczono książkę " + textBox6.Text + " studentowi o numerze indeksu: " + textBox1.Text + "");
+                }
+                else
+                {
+                    MessageBox.Show("Książka " + textBox6.Text + " nie jest dostępna");
+                }
+                
             }
             catch (Exception ex)
             {

@@ -65,11 +65,11 @@ namespace AplikacjaBiblioteka
                 cmd.CommandType = CommandType.Text;
                 if (category == "")
                 {
-                    cmd.CommandText = "select Id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info";
+                    cmd.CommandText = "select Id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość, available as Dostępne from book_info";
                 }
                 else
                 {
-                    cmd.CommandText = "select id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info where " + category + " like '%" + textBox2.Text + "%'";
+                    cmd.CommandText = "select id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość, available as Dostępne from book_info where " + category + " like '%" + textBox2.Text + "%'";
                 }
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -119,7 +119,7 @@ namespace AplikacjaBiblioteka
                 //Select query for books info
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info where id = " + i + "";
+                cmd.CommandText = "select id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość, available as Dostępne from book_info where id = " + i + "";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -196,7 +196,7 @@ namespace AplikacjaBiblioteka
                 //Select query for book info
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select Id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość from book_info";
+                cmd.CommandText = "select Id as Identyfikator, name as Tytuł, author_name as Autor, publication_name as Wydawnictwo, purchase_date as Data_zakupu, quantity as Ilość, available as Dostępne from book_info";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

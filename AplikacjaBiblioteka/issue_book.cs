@@ -109,12 +109,6 @@ namespace AplikacjaBiblioteka
                             listBox1.Items.Add(dr["name"].ToString() + " - " + dr["author_name"].ToString());
                         }
                     }
-
-                    //Setting the defined id for later update
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        textBox8.Text = dr["id"].ToString();
-                    }
                 }
 
             }
@@ -126,40 +120,66 @@ namespace AplikacjaBiblioteka
 
         private void textBox6_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down)
+            try
             {
-                //While clicking down going to the listBox1 and selecting the first position
-                listBox1.Focus();
-                listBox1.SelectedIndex = 0;
+                if (e.KeyCode == Keys.Down)
+                {
+                    //While clicking down going to the listBox1 and selecting the first position
+                    listBox1.Focus();
+                    listBox1.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 
         private void listBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            //If selected book by enter then close the listbox and just choose the one book
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                textBox6.Text = listBox1.SelectedItem.ToString();
-                listBox1.Visible = false;
+                //If selected book by enter then close the listbox and just choose the one book
+                if (e.KeyCode == Keys.Enter)
+                {
+                    textBox6.Text = listBox1.SelectedItem.ToString();
+                    listBox1.Visible = false;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            
+            
         }
 
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            //If clicked by the mouse the same efect like with enter click in listoBox1_KeyDown event
-            textBox6.Text = listBox1.SelectedItem.ToString();
-            listBox1.Visible = false;
+            try
+            {
+                //If clicked by the mouse the same efect like with enter click in listoBox1_KeyDown event
+                textBox6.Text = listBox1.SelectedItem.ToString();
+                listBox1.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
+                //Variables for update
                 int availableAmount = 0;
+                int book_id = 0;
+
                 //Query to check if the book is available
                 SqlCommand cmd2 = con.CreateCommand();
                 cmd2.CommandType = CommandType.Text;
-                cmd2.CommandText = "select * from books_info where id = " + textBox8.Text + "";
+                cmd2.CommandText = "select * from book_info where name + ' - ' + author_name = '" + textBox6.Text + "'";
                 cmd2.ExecuteNonQuery();
                 DataTable dt2 = new DataTable();
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
@@ -168,6 +188,7 @@ namespace AplikacjaBiblioteka
                 foreach(DataRow dr2 in dt2.Rows)
                 {
                     availableAmount = Convert.ToInt32(dr2["available"].ToString());
+                    book_id = Convert.ToInt32(dr2["id"].ToString());
                 }
 
                 if (availableAmount > 0)
@@ -175,13 +196,13 @@ namespace AplikacjaBiblioteka
                     //Insert query to the table with issuing books
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into issue_book (student_id,book_id,issue_date) values ('" + textBox7.Text + "','" + textBox8.Text + "','" + dateTimePicker1.Value.ToShortDateString() + "')";
+                    cmd.CommandText = "insert into issue_book (student_id,book_id,issue_date) values (" + Convert.ToInt32(textBox7.Text) + "," + book_id + ",'" + dateTimePicker1.Value.ToShortDateString() + "')";
                     cmd.ExecuteNonQuery();
 
                     //Update query to decrease the amount of books
                     SqlCommand cmd1 = con.CreateCommand();
                     cmd1.CommandType = CommandType.Text;
-                    cmd1.CommandText = "update book_info set available = available - 1 where id = " + textBox8.Text + "";
+                    cmd1.CommandText = "update book_info set available = available - 1 where id = " + book_id + "";
                     cmd1.ExecuteNonQuery();
 
                     MessageBox.Show("Wypożyczono książkę " + textBox6.Text + " studentowi o numerze indeksu: " + textBox1.Text + "");

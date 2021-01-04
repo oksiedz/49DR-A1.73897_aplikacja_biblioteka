@@ -65,6 +65,12 @@
     <Compile Include="issue_book.Designer.cs">
       <DependentUpon>issue_book.cs</DependentUpon>
     </Compile>
+    <Compile Include="return_book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="return_book.Designer.cs">
+      <DependentUpon>return_book.cs</DependentUpon>
+    </Compile>
     <Compile Include="view_books.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="return_book.resx">
+      <DependentUpon>return_book.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view_books.resx">
       <DependentUpon>view_books.cs</DependentUpon>
     </EmbeddedResource>

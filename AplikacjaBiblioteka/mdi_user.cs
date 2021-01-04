@@ -133,5 +133,11 @@ namespace AplikacjaBiblioteka
             issue_book ib = new issue_book();
             ib.Show();
         }
+
+        private void zwróćToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            return_book rb = new return_book();
+            rb.Show();
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace AplikacjaBiblioteka
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new login());
-            //Application.Run(new return_book());
+            //Application.Run(new book_stock());
         }
     }
 }

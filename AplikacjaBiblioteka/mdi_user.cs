@@ -139,5 +139,11 @@ namespace AplikacjaBiblioteka
             return_book rb = new return_book();
             rb.Show();
         }
+
+        private void stanZbioruToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            book_stock bs = new book_stock();
+            bs.Show();
+        }
     }
 }

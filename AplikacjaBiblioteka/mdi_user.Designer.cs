@@ -42,6 +42,7 @@ namespace AplikacjaBiblioteka
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.zwróćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stanZbioruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +64,8 @@ namespace AplikacjaBiblioteka
             this.addNewBookToolStripMenuItem,
             this.przeglądajToolStripMenuItem,
             this.wypożyczToolStripMenuItem,
-            this.zwróćToolStripMenuItem});
+            this.zwróćToolStripMenuItem,
+            this.stanZbioruToolStripMenuItem});
             this.booksToolStripMenuItem.Name = "booksToolStripMenuItem";
             this.booksToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.booksToolStripMenuItem.Text = "Książki";
@@ -136,6 +138,13 @@ namespace AplikacjaBiblioteka
             this.zwróćToolStripMenuItem.Text = "Zwróć";
             this.zwróćToolStripMenuItem.Click += new System.EventHandler(this.zwróćToolStripMenuItem_Click);
             // 
+            // stanZbioruToolStripMenuItem
+            // 
+            this.stanZbioruToolStripMenuItem.Name = "stanZbioruToolStripMenuItem";
+            this.stanZbioruToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stanZbioruToolStripMenuItem.Text = "Stan zbioru";
+            this.stanZbioruToolStripMenuItem.Click += new System.EventHandler(this.stanZbioruToolStripMenuItem_Click);
+            // 
             // mdi_user
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +180,7 @@ namespace AplikacjaBiblioteka
         private System.Windows.Forms.ToolStripMenuItem przeglądajToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem wypożyczToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zwróćToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stanZbioruToolStripMenuItem;
     }
 }
 

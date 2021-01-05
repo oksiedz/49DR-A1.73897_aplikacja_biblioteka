@@ -44,6 +44,7 @@ namespace AplikacjaBiblioteka
         {
             try
             {
+                //Query with list of all books
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select id as Identyfikator,name as Tytuł,author_name as Autor,publication_name as Wydawnictwo,quantity as Ilość,available as Dostępne from book_info";
@@ -67,6 +68,7 @@ namespace AplikacjaBiblioteka
                 int i;
                 i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 
+                //Return positions of choosen books which are borrowed
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "SELECT c.name as Imię_Nazwisko,c.index_no as Nr_indeksu,c.department as Wydział,c.phone as Telefon,c.email as Email,b.name as Tytuł,a.issue_date as Data_Wypozyczenia FROM issue_book a INNER JOIN book_info b on a.book_id = b.id INNER JOIN student_info c on a.student_id = c.id WHERE a.return_date is null and book_id = " + i + "";
@@ -86,6 +88,7 @@ namespace AplikacjaBiblioteka
         {
             try
             {
+                //Query returning list of books with the limitation to title
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select id as Identyfikator,name as Tytuł,author_name as Autor,publication_name as Wydawnictwo,quantity as Ilość,available as Dostępne from book_info where name like '%" + textBox1.Text + "%'";

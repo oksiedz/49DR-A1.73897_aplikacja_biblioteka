@@ -53,6 +53,10 @@ namespace AplikacjaBiblioteka
             {
                 //Variable for path to the image
                 string imagePath;
+
+                //Variable to check if index no is unique
+                int exists = 0;
+
                 //Coppy file to the app resoureces nad setting the path to the image
                 File.Copy(openFileDialog1.FileName, wantedPath + "\\student_images\\" + pwd + ".jpg");
                 imagePath = "student_images\\" + pwd + ".jpg";
@@ -64,11 +68,30 @@ namespace AplikacjaBiblioteka
                 }
                 con.Open();
 
-                //Insertion of student data
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into student_info(name,image,index_no,department,phone,email) values('" + textBox1.Text +"','" + imagePath.ToString() +"','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "')";
-                cmd.ExecuteNonQuery();
+                //Check if there is already student with the same index no
+                SqlCommand cmd1 = con.CreateCommand();
+                cmd1.CommandType = CommandType.Text;
+                cmd1.CommandText = "select * from student_info where index_no ='" + textBox2.Text + "'";
+                cmd1.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd1);
+                da.Fill(dt);
+                exists = Convert.ToInt32(dt.Rows.Count.ToString());
+
+                if (exists == 0)
+                {
+                    //Insertion of student data
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "insert into student_info(name,image,index_no,department,phone,email) values('" + textBox1.Text + "','" + imagePath.ToString() + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "')";
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Student został dodany");
+                }
+                else
+                {
+                    MessageBox.Show("W bazie istnieje już student o numerze indeksu: " + textBox2.Text + ".");
+                }
 
                 //Setting textboxes to empty values
                 textBox1.Text = "";
@@ -76,8 +99,6 @@ namespace AplikacjaBiblioteka
                 textBox3.Text = "";
                 textBox4.Text = "";
                 textBox5.Text = "";
-
-                MessageBox.Show("Student został dodany");
 
                 //Closing the connections
                 con.Close();

@@ -16,3 +16,4 @@ C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\Apl
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.issue_book.resources
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.return_book.resources
 C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.book_stock.resources
+C:\Users\toksiedzki\Documents\Repozytoria\49DR-A1.73897_aplikacja_biblioteka\AplikacjaBiblioteka\obj\Debug\AplikacjaBiblioteka.report_books_remain_retain.resources

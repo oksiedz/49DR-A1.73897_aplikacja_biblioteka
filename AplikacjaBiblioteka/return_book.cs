@@ -25,6 +25,7 @@ namespace AplikacjaBiblioteka
         {
             try
             {
+                //Fill the grid with results
                 fill_grid(textBox1.Text);
             }
             catch (Exception ex)
@@ -72,27 +73,28 @@ namespace AplikacjaBiblioteka
 
                 if (count > 0)
                 {
+                    //Fill the grid with data results
                     dataGridView1.DataSource = dt;
+                    
+                    //Show panel 2
                     panel2.Visible = true;
                 }
                 else
                 {
                     MessageBox.Show("Student nie ma aktywnych wypożyczeń.");
                 }    
-                
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+                //Show panel 3
                 panel3.Visible = true;
                 
                 //Assignment of ID of the row
@@ -108,6 +110,7 @@ namespace AplikacjaBiblioteka
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
 
+                //Show as labels title and issue date
                 foreach(DataRow dr in dt.Rows)
                 {
                     label3.Text = dr["Tytuł"].ToString();
@@ -142,6 +145,7 @@ namespace AplikacjaBiblioteka
 
                 MessageBox.Show("Książka zwrócona.");
 
+                //Hide panels
                 panel2.Visible = false;
                 panel3.Visible = false;
             }

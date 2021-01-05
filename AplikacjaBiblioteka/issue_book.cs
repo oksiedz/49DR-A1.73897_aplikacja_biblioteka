@@ -26,6 +26,7 @@ namespace AplikacjaBiblioteka
             {
                 //Variable for row count
                 int i = 0;
+
                 //Select query
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
@@ -84,6 +85,7 @@ namespace AplikacjaBiblioteka
             {
                 //Variable for count of results
                 int count = 0;
+
                 //Code to present the the books details while pressing whatever button (not enter)
                 if (e.KeyCode != Keys.Enter)
                 {
@@ -104,6 +106,8 @@ namespace AplikacjaBiblioteka
                     if (count > 0)
                     {
                         listBox1.Visible = true;
+                        
+                        //Listing in listBox title and author of the book
                         foreach (DataRow dr in dt.Rows)
                         {
                             listBox1.Items.Add(dr["name"].ToString() + " - " + dr["author_name"].ToString());
@@ -150,8 +154,6 @@ namespace AplikacjaBiblioteka
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-            
-            
         }
 
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
@@ -185,6 +187,7 @@ namespace AplikacjaBiblioteka
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                 da2.Fill(dt2);
 
+                //Assingment of variables used later in updates
                 foreach(DataRow dr2 in dt2.Rows)
                 {
                     availableAmount = Convert.ToInt32(dr2["available"].ToString());

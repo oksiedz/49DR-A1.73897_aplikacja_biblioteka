@@ -145,5 +145,16 @@ namespace AplikacjaBiblioteka
             book_stock bs = new book_stock();
             bs.Show();
         }
+
+        private void raportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            report_books_remain_retain rbrr = new report_books_remain_retain();
+            rbrr.Show();
+        }
+
+        private void mdi_user_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

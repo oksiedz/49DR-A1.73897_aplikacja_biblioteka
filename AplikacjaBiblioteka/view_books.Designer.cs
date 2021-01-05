@@ -29,6 +29,7 @@ namespace AplikacjaBiblioteka
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(view_books));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -76,7 +77,6 @@ namespace AplikacjaBiblioteka
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(323, 139);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // comboBox1
             // 
@@ -144,7 +144,7 @@ namespace AplikacjaBiblioteka
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(12, 374);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1115, 198);
+            this.panel2.Size = new System.Drawing.Size(649, 132);
             this.panel2.TabIndex = 2;
             this.panel2.Visible = false;
             // 
@@ -259,12 +259,13 @@ namespace AplikacjaBiblioteka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1467, 667);
+            this.ClientSize = new System.Drawing.Size(1467, 512);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "view_books";
-            this.Text = "view_books";
+            this.Text = "Pokaż książki";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.view_books_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

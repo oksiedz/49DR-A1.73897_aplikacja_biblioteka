@@ -29,7 +29,9 @@ namespace AplikacjaBiblioteka
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(issue_book));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -47,7 +49,6 @@ namespace AplikacjaBiblioteka
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +76,14 @@ namespace AplikacjaBiblioteka
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(544, 281);
             this.panel1.TabIndex = 0;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(3, 82);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 18;
+            this.textBox7.Visible = false;
             // 
             // button2
             // 
@@ -226,22 +235,18 @@ namespace AplikacjaBiblioteka
             this.textBox1.Size = new System.Drawing.Size(176, 20);
             this.textBox1.TabIndex = 0;
             // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(3, 82);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 18;
-            this.textBox7.Visible = false;
-            // 
             // issue_book
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 303);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "issue_book";
-            this.Text = "issue_book";
+            this.Text = "Wypożycz książkę";
             this.Load += new System.EventHandler(this.issue_book_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
